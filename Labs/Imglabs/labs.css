@@ -1,0 +1,973 @@
+/* =========================================================
+   KAUÃ GABRIEL — LABORATÓRIO
+   BASEADO NA IDENTIDADE DO PORTFÓLIO
+   MOBILE FIRST
+   ========================================================= */
+
+:root {
+  --fundo: #08070d;
+  --fundo-2: #0d0a16;
+  --fundo-3: #151020;
+
+  --roxo: #8b5cf6;
+  --roxo-claro: #a78bfa;
+  --roxo-escuro: #5b21b6;
+  --roxo-suave: rgba(139, 92, 246, 0.12);
+
+  --branco: #f3f1f7;
+  --cinza: #aaa4b4;
+  --cinza-escuro: #6e6877;
+
+  --borda: rgba(255, 255, 255, 0.09);
+  --borda-roxa: rgba(139, 92, 246, 0.35);
+
+  --sombra: rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: var(--branco);
+
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 10%,
+      rgba(91, 33, 182, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      ellipse at 85% 80%,
+      rgba(139, 92, 246, 0.08),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #05040a,
+      #0b0812 50%,
+      #100a18
+    );
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================================================
+   FUNDO
+   ========================================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(91, 33, 182, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(139, 92, 246, 0.12),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(76, 29, 149, 0.16),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #05040a 0%,
+      #0b0812 45%,
+      #100a1c 100%
+    );
+}
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
+
+.labs-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 35px;
+
+  padding: 9px 14px;
+
+  color: var(--cinza);
+  background: rgba(139, 92, 246, 0.08);
+
+  border: 1px solid var(--borda);
+  border-radius: 15px;
+
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.labs-voltar:hover {
+  color: var(--roxo-claro);
+
+  background: var(--roxo-suave);
+
+  border-color: var(--borda-roxa);
+
+  transform: translateX(-4px);
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.labs-container {
+  width: calc(100% - 30px);
+
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  padding: 35px 0 40px;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.labs-header {
+  margin-bottom: 55px;
+}
+
+.mini-titulo {
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  color: var(--roxo-claro);
+}
+
+.labs-header h1 {
+  margin-bottom: 15px;
+
+  font-size: 38px;
+
+  line-height: 1;
+
+  letter-spacing: -1.5px;
+}
+
+.labs-header p {
+  max-width: 500px;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  color: var(--cinza);
+}
+
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+.labs-section {
+  width: 100%;
+
+  margin: 0 auto 55px;
+}
+
+.secao-titulo {
+  margin-bottom: 22px;
+}
+
+.secao-numero {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  color: var(--roxo-claro);
+
+  opacity: 0.75;
+}
+
+.secao-titulo h2 {
+  margin-bottom: 7px;
+
+  font-size: 28px;
+
+  line-height: 1.1;
+}
+
+.secao-titulo p {
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: var(--cinza);
+}
+
+
+/* =========================================================
+   PALETA
+   ========================================================= */
+
+.paleta {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+.cor-item {
+  padding: 12px;
+
+  border: 1px solid var(--borda);
+
+  border-radius: 15px;
+
+  background:
+    rgba(13, 10, 22, 0.72);
+}
+
+.cor {
+  width: 100%;
+  height: 65px;
+
+  margin-bottom: 10px;
+
+  border-radius: 10px;
+
+  border: 1px solid var(--borda);
+}
+
+.cor-item span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 11px;
+
+  color: var(--cinza);
+}
+
+.cor-item strong {
+  font-size: 11px;
+
+  font-weight: normal;
+
+  color: var(--roxo-claro);
+}
+
+
+/* cores */
+
+.cor-fundo {
+  background: #08070d;
+}
+
+.cor-fundo-2 {
+  background: #0d0a16;
+}
+
+.cor-fundo-3 {
+  background: #151020;
+}
+
+.cor-roxo {
+  background: #8b5cf6;
+}
+
+.cor-roxo-claro {
+  background: #a78bfa;
+}
+
+.cor-roxo-escuro {
+  background: #5b21b6;
+}
+
+
+/* =========================================================
+   PROJETOS
+   ========================================================= */
+
+.lab-project {
+  margin-top: 25px;
+
+  padding: 22px 18px;
+
+  border: 1px solid var(--borda);
+
+  border-radius: 20px;
+
+  background:
+    rgba(13, 10, 22, 0.72);
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.22);
+}
+
+.lab-project:hover {
+  border-color: var(--borda-roxa);
+}
+
+
+/* projeto atual */
+
+.projeto-atual {
+  border-color: var(--borda-roxa);
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(91, 33, 182, 0.12),
+      transparent 45%
+    ),
+    rgba(13, 10, 22, 0.72);
+}
+
+.project-number {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  letter-spacing: 1.5px;
+
+  color: var(--roxo-claro);
+}
+
+.lab-project h3 {
+  margin-bottom: 10px;
+
+  font-size: 25px;
+
+  line-height: 1.1;
+}
+
+.project-intro {
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  color: var(--cinza);
+}
+
+
+/* =========================================================
+   GALERIA
+   ========================================================= */
+
+.project-gallery {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 20px;
+
+  overflow-x: auto;
+
+  padding-bottom: 7px;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    var(--roxo-escuro)
+    transparent;
+}
+
+.project-gallery img {
+  width: 210px;
+  aspect-ratio: 210 / 297;
+  
+  flex-shrink: 0;
+  
+  object-fit: contain;
+  
+  border: 1px solid var(--borda);
+  
+  border-radius: 12px;
+  
+  background: var(--fundo-2);
+  
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.project-gallery img:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--borda-roxa);
+}
+
+
+/* =========================================================
+   INFORMAÇÕES DOS PROJETOS
+   ========================================================= */
+
+.project-info {
+  display: grid;
+
+  gap: 22px;
+
+  margin-top: 25px;
+}
+
+.project-info h4 {
+  margin-bottom: 7px;
+
+  font-size: 13px;
+
+  color: var(--roxo-claro);
+}
+
+.project-info p {
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  color: var(--cinza);
+}
+
+
+/* =========================================================
+   PORTFÓLIO
+   ========================================================= */
+
+.portfolio-section {
+  padding: 22px 18px;
+
+  border: 1px solid var(--borda);
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(91, 33, 182, 0.12),
+      transparent 45%
+    ),
+    rgba(13, 10, 22, 0.65);
+}
+
+.portfolio-text {
+  display: grid;
+
+  gap: 15px;
+}
+
+.portfolio-text p {
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  color: var(--cinza);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.labs-footer {
+  width: 100%;
+
+  margin-top: 10px;
+
+  padding: 28px 10px 35px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  border-top: 1px solid var(--borda);
+
+  color: var(--cinza-escuro);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+
+  text-align: center;
+}
+
+.labs footer a {
+  color: var(--roxo-claro);
+
+  transition: color 0.2s ease;
+}
+
+.labs-footer a:hover {
+  color: var(--branco);
+}
+
+
+/* =========================================================
+   SELEÇÃO
+   ========================================================= */
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+
+  color: white;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 650px) {
+
+  .labs-container {
+    max-width: 800px;
+
+    padding-top: 55px;
+  }
+
+  .labs-header h1 {
+    font-size: 50px;
+  }
+
+  .paleta {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .project-info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .lab-project {
+    padding: 30px;
+  }
+
+  .portfolio-section {
+    padding: 30px;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 950px) {
+
+  .labs-container {
+    padding-top: 70px;
+  }
+
+  .labs-header h1 {
+    font-size: 64px;
+  }
+
+  .labs-section {
+    margin-bottom: 65px;
+  }
+
+}
+
+/* =========================
+   LABORATÓRIO — ILUSTRAÇÃO
+========================= */
+
+.lab-preview-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.lab-illustration {
+  position: relative;
+  width: 260px;
+  height: 190px;
+  margin: 0 auto;
+}
+
+
+/* Mesa */
+
+.lab-table {
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+  width: 210px;
+  height: 12px;
+
+  background: var(--fundo-3);
+  border: 1px solid var(--borda-roxa);
+  border-radius: 8px;
+
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.08);
+
+  animation: table-glow 4s ease-in-out infinite;
+}
+
+@keyframes table-glow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 15px rgba(139, 92, 246, 0.05);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(139, 92, 246, 0.14);
+  }
+
+}
+
+
+/* Frasco */
+
+.flask {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+
+  width: 90px;
+  height: 105px;
+
+  transform: translateX(-50%);
+
+  border: 2px solid rgba(167, 139, 250, 0.7);
+  border-top: none;
+
+  border-radius: 0 0 42px 42px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(139, 92, 246, 0.14),
+      rgba(139, 92, 246, 0.02)
+    );
+
+  box-shadow:
+    0 0 25px rgba(139, 92, 246, 0.12);
+
+  animation: flask-glow 4s ease-in-out infinite;
+}
+
+@keyframes flask-glow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(139, 92, 246, 0.10);
+  }
+
+  50% {
+    box-shadow:
+      0 0 32px rgba(139, 92, 246, 0.22);
+  }
+
+}
+
+
+/* Pescoço do frasco */
+
+.flask-neck {
+  position: absolute;
+  top: -42px;
+  left: 50%;
+
+  width: 32px;
+  height: 44px;
+
+  transform: translateX(-50%);
+
+  border: 2px solid rgba(167, 139, 250, 0.7);
+  border-bottom: none;
+
+  background: rgba(13, 10, 22, 0.7);
+
+  animation: neck-glow 3s ease-in-out infinite;
+}
+
+@keyframes neck-glow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 rgba(167, 139, 250, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 12px rgba(167, 139, 250, 0.18);
+  }
+
+}
+
+
+/* Líquido */
+
+.liquid {
+  position: absolute;
+  left: 7px;
+  right: 7px;
+  bottom: 7px;
+
+  height: 45px;
+
+  overflow: hidden;
+
+  border-radius: 0 0 34px 34px;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(91, 33, 182, 0.8),
+      rgba(139, 92, 246, 0.45)
+    );
+
+  box-shadow:
+    0 0 18px rgba(139, 92, 246, 0.25);
+
+  transform-origin: center bottom;
+
+  animation: liquid-pulse 3s ease-in-out infinite;
+}
+
+@keyframes liquid-pulse {
+
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+
+  50% {
+    transform: scaleX(1.04);
+  }
+
+}
+
+
+/* Bolhas dentro do líquido */
+
+.liquid span {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--roxo-claro);
+
+  opacity: 0;
+
+  animation: lab-bubble 3.5s infinite ease-in;
+}
+
+.liquid span:nth-child(1) {
+  left: 22%;
+  bottom: 3px;
+  animation-duration: 3.2s;
+}
+
+.liquid span:nth-child(2) {
+  left: 48%;
+  bottom: 2px;
+  animation-duration: 4.2s;
+  animation-delay: 1s;
+}
+
+.liquid span:nth-child(3) {
+  left: 72%;
+  bottom: 5px;
+  animation-duration: 3.8s;
+  animation-delay: 1.8s;
+}
+
+@keyframes lab-bubble {
+
+  0% {
+    transform:
+      translate(0, 8px)
+      scale(0.5);
+
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.7;
+  }
+
+  55% {
+    transform:
+      translate(-3px, -18px)
+      scale(1);
+  }
+
+  100% {
+    transform:
+      translate(4px, -42px)
+      scale(0.7);
+
+    opacity: 0;
+  }
+
+}
+
+
+/* Bolhas fora do frasco */
+
+.bubble {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--roxo-claro);
+
+  opacity: 0;
+
+  box-shadow:
+    0 0 10px rgba(167, 139, 250, 0.5);
+
+  animation: floating-bubble 4s ease-in-out infinite;
+}
+
+.bubble-1 {
+  top: 30px;
+  left: 70px;
+
+  animation-duration: 4.5s;
+}
+
+.bubble-2 {
+  top: 55px;
+  right: 55px;
+
+  width: 5px;
+  height: 5px;
+
+  animation-duration: 3.8s;
+  animation-delay: 1s;
+}
+
+.bubble-3 {
+  top: 15px;
+  right: 85px;
+
+  width: 6px;
+  height: 6px;
+
+  animation-duration: 5s;
+  animation-delay: 2s;
+}
+
+@keyframes floating-bubble {
+
+  0% {
+    transform:
+      translate(0, 5px)
+      scale(0.5);
+
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.65;
+  }
+
+  50% {
+    transform:
+      translate(-5px, -15px)
+      scale(1);
+  }
+
+  75% {
+    opacity: 0.45;
+  }
+
+  100% {
+    transform:
+      translate(6px, -35px)
+      scale(0.6);
+
+    opacity: 0;
+  }
+
+}
+
+
+/* Ajuste do botão */
+
+.lab-preview-content .btn {
+  position: relative;
+  z-index: 2;
+}
