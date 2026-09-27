@@ -1,0 +1,916 @@
+/* =========================================================
+   KAUÃ GABRIEL — PORTFÓLIO
+   MOBILE FIRST
+   ========================================================= */
+
+:root {
+  --fundo: #08070d;
+  --fundo-2: #0d0a16;
+  --fundo-3: #151020;
+
+  --roxo: #8b5cf6;
+  --roxo-claro: #a78bfa;
+  --roxo-escuro: #5b21b6;
+  --roxo-suave: rgba(139, 92, 246, 0.12);
+
+  --branco: #f3f1f7;
+  --cinza: #aaa4b4;
+  --cinza-escuro: #6e6877;
+
+  --borda: rgba(255, 255, 255, 0.09);
+  --borda-roxa: rgba(139, 92, 246, 0.35);
+
+  --sombra: rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: var(--branco);
+
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 15% 10%,
+      rgba(91, 33, 182, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      ellipse at 85% 80%,
+      rgba(139, 92, 246, 0.08),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #05040a,
+      #0b0812 50%,
+      #100a18
+    );
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* =========================================================
+   FUNDO / PARTÍCULAS
+   ========================================================= */
+
+#particles-js {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(91, 33, 182, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(139, 92, 246, 0.12),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(76, 29, 149, 0.16),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #05040a 0%,
+      #0b0812 45%,
+      #100a1c 100%
+    );
+}
+
+
+/* =========================================================
+   PERFIL
+   ========================================================= */
+
+header {
+  width: 100%;
+
+  padding: 35px 15px 20px;
+}
+
+.perfil {
+  position: relative;
+
+  width: 100%;
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  padding: 35px 22px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(21, 16, 32, 0.88),
+      rgba(8, 7, 13, 0.82)
+    );
+
+  border: 1px solid var(--borda);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 15px 45px rgba(0, 0, 0, 0.28);
+
+  overflow: hidden;
+}
+
+
+/* brilho decorativo */
+
+.perfil::before {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  top: -100px;
+  right: -70px;
+
+  background: rgba(91, 33, 182, 0.20);
+
+  filter: blur(55px);
+
+  pointer-events: none;
+}
+
+
+/* KG */
+
+.perfil::after {
+  content: "KG";
+
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  color: rgba(167, 139, 250, 0.45);
+}
+
+
+/* pequeno título */
+
+.mini-titulo {
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  color: var(--roxo-claro);
+}
+
+
+/* nome */
+
+.perfil h1 {
+  position: relative;
+
+  margin-bottom: 13px;
+
+  font-size: 38px;
+
+  line-height: 1;
+
+  letter-spacing: -1.5px;
+}
+
+
+/* profissão */
+
+.perfil h3 {
+  margin-bottom: 18px;
+
+  font-size: 16px;
+
+  font-weight: normal;
+
+  line-height: 1.5;
+
+  color: #ddd8e6;
+}
+
+
+/* texto */
+
+.info {
+  max-width: 500px;
+
+  margin: 0 auto;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  color: var(--cinza);
+}
+
+
+/* =========================================================
+   REDES
+   ========================================================= */
+
+.card {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.socialContainer {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--borda);
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.socialContainer img {
+  width: 20px;
+  height: 20px;
+
+  opacity: 0.82;
+}
+
+.socialContainer:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--borda-roxa);
+
+  background: var(--roxo-suave);
+}
+
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+section {
+  width: calc(100% - 30px);
+
+  max-width: 600px;
+
+  margin: 0 auto 55px;
+}
+
+
+/* título das seções */
+
+.secao-titulo {
+  margin-bottom: 22px;
+}
+
+.secao-numero {
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  letter-spacing: 2px;
+
+  color: var(--roxo-claro);
+
+  opacity: 0.75;
+}
+
+.secao-titulo h2 {
+  margin-bottom: 7px;
+
+  font-size: 28px;
+
+  line-height: 1.1;
+}
+
+.secao-titulo p {
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color: var(--cinza);
+}
+
+
+/* =========================================================
+   HABILIDADES
+   ========================================================= */
+
+.habilidades {
+  padding-top: 5px;
+}
+
+
+/*
+   Aqui é onde mantemos bastante da cara
+   do seu portfólio antigo:
+   duas colunas no celular.
+*/
+
+.habilidade-item {
+  width: calc(50% - 7px);
+
+  min-height: 105px;
+
+  display: inline-flex;
+
+  vertical-align: top;
+
+  margin: 0 10px 10px 0;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1px solid var(--borda);
+
+  border-radius: 15px;
+
+  background:
+    rgba(13, 10, 22, 0.72);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/*
+   remove a margem da coluna direita
+*/
+
+.habilidade-item:nth-of-type(even) {
+  margin-right: 0;
+}
+
+.habilidade-item:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--borda-roxa);
+
+  background: var(--roxo-suave);
+}
+
+.habilidade-item img {
+  width: 38px;
+  height: 38px;
+
+  object-fit: contain;
+
+  opacity: 0.85;
+}
+
+.habilidade-item p {
+  font-size: 12px;
+
+  color: var(--cinza);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   EXPERIMENTOS WEB
+   ========================================================= */
+
+.jogos-section {
+  padding: 25px 18px;
+
+  border: 1px solid var(--borda);
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(91, 33, 182, 0.12),
+      transparent 45%
+    ),
+    rgba(13, 10, 22, 0.65);
+}
+
+
+/*
+   Botões ocupam quase toda a largura.
+   Isso fica bem melhor no celular.
+*/
+
+.jogos-section .btn {
+  width: 100%;
+
+  margin: 5px 0;
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.btn {
+  display: inline-block;
+
+  padding: 12px 17px;
+
+  border: 1px solid var(--borda-roxa);
+
+  border-radius: 10px;
+
+  color: var(--branco);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(91, 33, 182, 0.48),
+      rgba(76, 29, 149, 0.30)
+    );
+
+  font-size: 13px;
+
+  text-align: center;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.68),
+      rgba(91, 33, 182, 0.55)
+    );
+
+  box-shadow:
+    0 8px 25px rgba(91, 33, 182, 0.20);
+}
+
+
+/* =========================================================
+   MEUS JOGOS
+   ========================================================= */
+
+.projeto-atual {
+  padding-top: 5px;
+}
+
+
+/*
+   Duas colunas no celular.
+   Essa é uma das coisas que mais aproxima
+   do estilo do seu portfólio antigo.
+*/
+
+.jogos-menu {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+
+/* card */
+
+.jogo-icone {
+  position: relative;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  border: 1px solid var(--borda);
+
+  border-radius: 15px;
+
+  background: #0b0911;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.jogo-icone:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--borda-roxa);
+
+  box-shadow:
+    0 12px 30px rgba(91, 33, 182, 0.18);
+}
+
+.jogo-icone img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.jogo-icone:hover img {
+  transform: scale(1.05);
+
+  filter: brightness(0.82);
+}
+
+
+/* nome do jogo */
+
+.jogo-label {
+  position: absolute;
+
+  left: 8px;
+  right: 8px;
+
+  bottom: 8px;
+
+  padding: 7px 8px;
+
+  border-radius: 7px;
+
+  background:
+    rgba(8, 7, 13, 0.78);
+
+  backdrop-filter: blur(7px);
+
+  font-size: 10px;
+
+  text-align: center;
+
+  color: var(--branco);
+}
+
+
+/* =========================================================
+   DETALHE DO JOGO
+   ========================================================= */
+
+.jogo-detalhe {
+  display: none;
+
+  margin-top: 25px;
+
+  padding: 22px 18px;
+
+  border: 1px solid var(--borda-roxa);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(21, 16, 32, 0.92),
+      rgba(8, 7, 13, 0.90)
+    );
+}
+
+.jogo-detalhe.ativo {
+  display: block;
+}
+
+.jogo-detalhe h2 {
+  margin: 17px 0 10px;
+
+  font-size: 25px;
+}
+
+.jogo-detalhe p {
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  color: var(--cinza);
+}
+
+
+/* botão voltar */
+
+#voltar {
+  padding: 8px 12px;
+
+  border: 1px solid var(--borda);
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  color: var(--cinza);
+
+  cursor: pointer;
+}
+
+#voltar:hover {
+  background: var(--roxo-suave);
+
+  color: var(--branco);
+}
+
+
+/* galeria */
+
+.galeria-mini {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.galeria-mini img {
+  width: 100%;
+
+  border-radius: 9px;
+
+  border: 1px solid var(--borda);
+}
+
+
+/* =========================================================
+   ARTE
+   ========================================================= */
+
+.artes-section {
+  padding-bottom: 10px;
+}
+
+.artes-container {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+
+/* imagem */
+
+.cartas {
+  overflow: hidden;
+
+  aspect-ratio: 1 / 1;
+
+  border: 1px solid var(--borda);
+
+  border-radius: 14px;
+
+  background: #0b0911;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.cartas:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--borda-roxa);
+}
+
+.cartas img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.cartas:hover img {
+  transform: scale(1.04);
+
+  filter: brightness(0.88);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  width: calc(100% - 30px);
+
+  max-width: 600px;
+
+  margin: 10px auto 0;
+
+  padding: 28px 10px 35px;
+
+  border-top: 1px solid var(--borda);
+
+  color: var(--cinza-escuro);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SELEÇÃO
+   ========================================================= */
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+
+  color: white;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 650px) {
+
+  header {
+    padding-top: 55px;
+  }
+
+  .perfil {
+    padding: 45px 35px;
+  }
+
+  .perfil h1 {
+    font-size: 50px;
+  }
+
+  .habilidade-item {
+    width: calc(25% - 9px);
+
+    margin-right: 10px;
+  }
+
+  .habilidade-item:nth-of-type(even) {
+    margin-right: 10px;
+  }
+
+  .jogos-menu {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .artes-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 950px) {
+
+  header {
+    padding-top: 70px;
+  }
+
+  .perfil {
+    max-width: 800px;
+
+    padding: 55px 50px;
+
+    text-align: left;
+
+    border-radius: 25px;
+  }
+
+  .perfil h1 {
+    font-size: 64px;
+  }
+
+  .info {
+    margin: 0;
+
+    max-width: 650px;
+  }
+
+  .card {
+    justify-content: flex-start;
+  }
+
+  section {
+    max-width: 800px;
+  }
+
+  .habilidade-item {
+    min-height: 115px;
+  }
+
+  .jogos-section {
+    padding: 30px;
+  }
+
+  .jogos-section .btn {
+    width: auto;
+
+    margin: 5px;
+  }
+
+  .jogo-detalhe {
+    padding: 30px;
+  }
+
+  .footer {
+    max-width: 800px;
+  }
+
+}
+
+
